@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +16,12 @@ class MainActivity : AppCompatActivity() {
         val rollButton : Button = roll_button
         rollButton.text = "Let's Roll"
         rollButton.setOnClickListener {
-            Toast.makeText(this, "button clicked", Toast.LENGTH_LONG).show()
+            rollDice()
         }
+    }
+
+    private fun rollDice() {
+        val randomInt = Random().nextInt(6) + 1
+        result_textView.text = randomInt.toString()
     }
 }
